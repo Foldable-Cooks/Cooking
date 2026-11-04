@@ -1,6 +1,5 @@
 package com.example.cookinggame;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
+import android.app.Activity;
+public class MainActivity extends Activity{
 }
