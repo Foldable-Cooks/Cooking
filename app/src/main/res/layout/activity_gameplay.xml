@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Gameplay book. The current stage (Assembly / Cooking / Results) inflates its
+    own page layouts into bookLeftPage and bookRightPage; see GameStage.
+    While folded, the cover shows the current step.
+-->
+<com.example.cookinggame.BookSpreadView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/book"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/book_cover_dark">
+
+    <include
+        android:id="@id/bookCover"
+        layout="@layout/cover_gameplay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@id/bookLeftPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pixel_page"
+        android:padding="16dp" />
+
+    <View
+        android:id="@id/bookSpine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/book_gold" />
+
+    <FrameLayout
+        android:id="@id/bookRightPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pixel_page"
+        android:padding="16dp" />
+
+</com.example.cookinggame.BookSpreadView>

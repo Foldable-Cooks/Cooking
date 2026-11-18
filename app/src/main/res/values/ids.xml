@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Slots that BookSpreadView looks for in its children -->
+    <item name="bookCover" type="id" />
+    <item name="bookLeftPage" type="id" />
+    <item name="bookRightPage" type="id" />
+    <item name="bookSpine" type="id" />
+</resources>

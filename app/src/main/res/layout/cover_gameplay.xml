@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Outside of the book during gameplay (phone folded). Shows the current step.
+    coverStageArea is an empty slot for folded-phone mechanics (e.g. the fold
+    "snap" when breaking chocolate).
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/pixel_cover"
+    android:padding="40dp">
+
+    <TextView
+        android:id="@+id/recipeName"
+        style="@style/PixelText.Cover.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/stageTitle"
+        style="@style/PixelText.Cover.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/stepCounter"
+        style="@style/PixelText.Cover.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/stepAction"
+        style="@style/PixelText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/pixel_tag_cover"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/book_cover_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/stepInstruction"
+        style="@style/PixelText.Cover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="18sp" />
+
+    <FrameLayout
+        android:id="@+id/coverStageArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/coverHint"
+        style="@style/PixelText.Cover.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/stepDoneButton"
+        style="@style/PixelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/step_done_placeholder" />
+</LinearLayout>

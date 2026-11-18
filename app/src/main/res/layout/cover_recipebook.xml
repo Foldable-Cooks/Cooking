@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Outside of the recipe book, shown while the phone is folded. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/pixel_cover"
+    android:padding="40dp">
+
+    <TextView
+        style="@style/PixelText.Cover.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cover_stars" />
+
+    <TextView
+        style="@style/PixelText.Cover.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/cover_title" />
+
+    <TextView
+        android:id="@+id/coverBookmark"
+        style="@style/PixelText.Cover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        style="@style/PixelText.Cover.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/cover_open_to_pick" />
+</LinearLayout>

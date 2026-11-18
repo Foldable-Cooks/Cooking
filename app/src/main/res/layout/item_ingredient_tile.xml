@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PLACEHOLDER ingredient in the Assembly tray. Swap for an ImageView with the food sprite. -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PixelButton"
+    android:layout_width="0dp"
+    android:layout_height="64dp"
+    android:layout_columnWeight="1"
+    android:layout_margin="4dp"
+    android:textSize="13sp" />

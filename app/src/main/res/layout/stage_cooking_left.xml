@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- COOKING, left page: current step + timer slot. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/stage_step_header" />
+
+    <TextView
+        style="@style/PixelText.Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cooking_timer" />
+
+    <!-- Slot for the timer UI -->
+    <FrameLayout
+        android:id="@+id/timerArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/timerText"
+            style="@style/PixelText.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/timer_placeholder"
+            android:textSize="40sp" />
+    </FrameLayout>
+</LinearLayout>

@@ -45,14 +45,17 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             playPressed = savedInstanceState.getBoolean("playPressed");
+            recipeOpened = savedInstanceState.getBoolean("recipeOpened");
 
-            if (playPressed) {
+            // If the book was already opened before this activity was recreated,
+            // the player is coming back from the recipe book: show the title again.
+            if (recipeOpened) {
+                resetToTitle();
+            } else if (playPressed) {
                 playButton.setVisibility(TextView.GONE);
                 waitingMsg.setVisibility(TextView.VISIBLE);
             }
         }
-
-        waitingMsg.setVisibility(TextView.GONE);
 
         windowTracker = new WindowInfoTrackerCallbackAdapter(
                 WindowInfoTracker.getOrCreate(this)
@@ -65,6 +68,24 @@ public class MainActivity extends AppCompatActivity {
             waitingMsg.setVisibility(TextView.VISIBLE);
         });
 
+    }
+
+    // Called when the player presses Back from the recipe book.
+    // Runs before onStart re-registers the fold listener, so the book
+    // won't instantly reopen; the player presses play again instead.
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (recipeOpened) {
+            resetToTitle();
+        }
+    }
+
+    private void resetToTitle() {
+        playPressed = false;
+        recipeOpened = false;
+        playButton.setVisibility(TextView.VISIBLE);
+        waitingMsg.setVisibility(TextView.GONE);
     }
 
     @Override
@@ -147,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("playPressed", playPressed);
+        outState.putBoolean("recipeOpened", recipeOpened);
         super.onSaveInstanceState(outState);
     }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PLACEHOLDER food picture. To use real art, delete this file and add food_crepes.png. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <size android:width="96dp" android:height="96dp" />
+    <solid android:color="#E9C98E" />
+    <stroke android:width="4dp" android:color="@color/book_ink" />
+</shape>

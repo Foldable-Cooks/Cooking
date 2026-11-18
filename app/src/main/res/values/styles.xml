@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Recipe book text styles. To switch to a pixel font later, drop the
+        font file into res/font/ (e.g. res/font/pixel_font.ttf) and change
+        fontFamily in PixelText to "@font/pixel_font". Every style below
+        inherits it.
+    -->
+    <style name="PixelText">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@color/book_ink</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="PixelText.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PixelText.Header">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/book_ink_soft</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="PixelText.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/book_ink_soft</item>
+    </style>
+
+    <!-- Light text for the book cover -->
+    <style name="PixelText.Cover">
+        <item name="android:textColor">@color/book_paper</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="PixelText.Cover.Title">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/book_highlight</item>
+    </style>
+
+    <style name="PixelText.Cover.Small">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/book_gold</item>
+    </style>
+
+    <!-- TextView-based buttons so Material styling doesn't override the pixel drawables -->
+    <style name="PixelButton" parent="PixelText">
+        <item name="android:background">@drawable/pixel_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+</resources>

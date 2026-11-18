@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ASSEMBLY, right page: the cutting board where food is dropped and put together. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/PixelText.Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:text="@string/assembly_board" />
+
+    <!-- Drop zone for dragged ingredients -->
+    <FrameLayout
+        android:id="@+id/assemblyBoard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/placeholder_board" />
+
+    <TextView
+        android:id="@+id/stepDoneButton"
+        style="@style/PixelButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/step_done_placeholder" />
+</LinearLayout>

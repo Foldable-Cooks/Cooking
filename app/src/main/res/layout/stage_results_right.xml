@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RESULTS, right page: how the player did, and the way back to the recipe book. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/PixelText.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/results_how_did_you_do" />
+
+    <TextView
+        android:id="@+id/resultStars"
+        style="@style/PixelText.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="36sp"
+        android:textColor="@color/book_gold" />
+
+    <TextView
+        android:id="@+id/resultSteps"
+        style="@style/PixelText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/resultTime"
+        style="@style/PixelText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/cookAgainButton"
+        style="@style/PixelButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/cook_again" />
+
+    <TextView
+        android:id="@+id/backToRecipesButton"
+        style="@style/PixelButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        android:textSize="18sp"
+        android:text="@string/back_to_recipes" />
+</LinearLayout>
