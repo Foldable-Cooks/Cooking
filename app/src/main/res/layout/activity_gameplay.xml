@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Gameplay book. The current stage (Assembly / Cooking / Results) inflates its
-    own page layouts into bookLeftPage and bookRightPage; see GameStage.
-    While folded, the cover shows the current step.
+    Gameplay: a kitchen table when the phone is open, the book cover when folded.
+    Header = instruction bar across the top. Left side = ingredients,
+    right side = the task (filled by the current GameStage). The split sits on the hinge.
 -->
 <com.example.cookinggame.BookSpreadView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/book"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/book_cover_dark">
+    android:background="@color/kitchen_table">
 
     <include
         android:id="@id/bookCover"
@@ -17,24 +17,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <include
+        android:id="@id/bookHeader"
+        layout="@layout/kitchen_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <FrameLayout
         android:id="@id/bookLeftPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/pixel_page"
         android:padding="16dp" />
 
+    <!-- Seam in the table, over the hinge -->
     <View
         android:id="@id/bookSpine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/book_gold" />
+        android:background="@color/kitchen_table_seam" />
 
     <FrameLayout
         android:id="@id/bookRightPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/pixel_page"
-        android:padding="16dp" />
+        android:padding="24dp" />
 
 </com.example.cookinggame.BookSpreadView>

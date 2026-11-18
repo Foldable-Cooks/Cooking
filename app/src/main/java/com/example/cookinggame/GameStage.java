@@ -51,6 +51,9 @@ public abstract class GameStage {
     /** The phone was folded (COVER), half opened or fully opened. */
     public void onBookStateChanged(BookSpreadView.State state) {}
 
+    /** The game came back on screen (e.g. after the phone was folded and reopened). */
+    public void onResume() {}
+
     /** The stage is about to be removed; stop timers, sensors, sounds here. */
     public void onExit() {}
 }

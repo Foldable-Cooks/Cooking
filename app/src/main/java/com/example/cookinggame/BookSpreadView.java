@@ -24,6 +24,7 @@ import androidx.window.layout.WindowLayoutInfo;
  *   bookLeftPage  - left page when open (top page on a top/bottom "flip" fold)
  *   bookRightPage - right page when open (bottom page on a flip fold)
  *   bookSpine     - optional; drawn exactly over the phone's hinge
+ *   bookHeader    - optional; full-width bar across the top when open
  *
  * The split between pages comes from the real hinge position reported by
  * Jetpack WindowManager, so the spine lines up with the fold on every device.
@@ -55,6 +56,7 @@ public class BookSpreadView extends ViewGroup {
     private View leftPage;
     private View rightPage;
     private View spine;
+    private View header;
 
     private FoldingFeature fold;
     private State state = State.COVER;
@@ -68,6 +70,7 @@ public class BookSpreadView extends ViewGroup {
     private final Rect leftRect = new Rect();
     private final Rect rightRect = new Rect();
     private final Rect spineRect = new Rect();
+    private final Rect headerRect = new Rect();
     private final int[] windowLocation = new int[2];
 
     public BookSpreadView(Context context) {
@@ -98,6 +101,7 @@ public class BookSpreadView extends ViewGroup {
         leftPage = findViewById(R.id.bookLeftPage);
         rightPage = findViewById(R.id.bookRightPage);
         spine = findViewById(R.id.bookSpine);
+        header = findViewById(R.id.bookHeader);
     }
 
     // ---- Fold tracking ----
@@ -148,6 +152,7 @@ public class BookSpreadView extends ViewGroup {
         setShown(leftPage, !closed);
         setShown(rightPage, !closed);
         setShown(spine, !closed);
+        setShown(header, !closed);
 
         if (closed) {
             measureInto(cover, coverRect);
@@ -166,6 +171,7 @@ public class BookSpreadView extends ViewGroup {
             layoutInto(leftPage, leftRect);
             layoutInto(rightPage, rightRect);
             layoutInto(spine, spineRect);
+            if (header != null) layoutInto(header, headerRect);
         }
     }
 
@@ -206,6 +212,15 @@ public class BookSpreadView extends ViewGroup {
         int pagesTop = top + margin;
         int pagesRight = right - margin;
         int pagesBottom = bottom - margin;
+
+        // Header bar spans the full width above both sides; pages start below it.
+        if (header != null) {
+            header.measure(
+                    MeasureSpec.makeMeasureSpec(Math.max(pagesRight - pagesLeft, 0), MeasureSpec.EXACTLY),
+                    MeasureSpec.makeMeasureSpec(Math.max(pagesBottom - pagesTop, 0), MeasureSpec.AT_MOST));
+            headerRect.set(pagesLeft, pagesTop, pagesRight, pagesTop + header.getMeasuredHeight());
+            pagesTop = headerRect.bottom + margin;
+        }
 
         if (splitLeftRight) {
             int half = Math.max(hinge.width(), spineMin) / 2;

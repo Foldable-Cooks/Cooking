@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PLACEHOLDER frying pan (square). To use real art, delete this file and add station_pan.png. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#4E4E4E" />
+    <stroke android:width="6dp" android:color="@color/book_ink" />
+</shape>

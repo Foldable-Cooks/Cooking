@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PLACEHOLDER plate (square). To use real art, delete this file and add station_plate.png. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#F5F3EE" />
+    <stroke android:width="6dp" android:color="@color/book_ink" />
+</shape>

@@ -14,11 +14,15 @@ public final class PixelArt {
 
     /** Sets an image without smoothing, so pixel art stays crisp when scaled up. */
     public static void setImage(ImageView view, @DrawableRes int drawableRes) {
-        Drawable drawable = ContextCompat.getDrawable(view.getContext(), drawableRes);
+        view.setImageDrawable(crisp(ContextCompat.getDrawable(view.getContext(), drawableRes)));
+    }
+
+    /** Turns off smoothing on a bitmap drawable (no effect on shape placeholders). */
+    public static Drawable crisp(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             ((BitmapDrawable) drawable).setFilterBitmap(false);
             ((BitmapDrawable) drawable).setAntiAlias(false);
         }
-        view.setImageDrawable(drawable);
+        return drawable;
     }
 }

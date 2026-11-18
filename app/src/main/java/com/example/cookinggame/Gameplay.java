@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
 
 /**
  * Plays one recipe as a book: Assembly and Cooking pages for each step,
@@ -34,6 +35,7 @@ public class Gameplay extends AppCompatActivity {
     private FrameLayout leftPage;
     private FrameLayout rightPage;
     private View cover;
+    private View header;
     private GameStage stage;
 
     @Override
@@ -51,6 +53,7 @@ public class Gameplay extends AppCompatActivity {
         leftPage = findViewById(R.id.bookLeftPage);
         rightPage = findViewById(R.id.bookRightPage);
         cover = findViewById(R.id.bookCover);
+        header = findViewById(R.id.bookHeader);
 
         if (savedInstanceState != null) {
             stepIndex = savedInstanceState.getInt(KEY_STEP, 0);
@@ -63,7 +66,9 @@ public class Gameplay extends AppCompatActivity {
         book.setOnStateChangedListener(state -> {
             if (stage != null) stage.onBookStateChanged(state);
         });
+        // Placeholder "DONE" buttons skip steps whose mechanic isn't built yet.
         cover.findViewById(R.id.stepDoneButton).setOnClickListener(v -> completeCurrentStep());
+        header.findViewById(R.id.stepDoneButton).setOnClickListener(v -> completeCurrentStep());
 
         showCurrentStep();
     }
@@ -127,9 +132,10 @@ public class Gameplay extends AppCompatActivity {
             switchTo(createStage(wanted));
         }
 
-        bindStepViews(leftPage, step);
-        bindStepViews(rightPage, step);
-        bindCover(step);
+        bindStepViews(header, step);
+        bindStepViews(cover, step);
+        setText(cover, R.id.coverHint, getString(
+                step == null ? R.string.cover_open_for_results : R.string.cover_open_to_cook));
         stage.onStepChanged(step, stepIndex);
     }
 
@@ -152,43 +158,29 @@ public class Gameplay extends AppCompatActivity {
         leftPage.addView(left);
         rightPage.addView(right);
 
-        // Placeholder "DONE" buttons skip the step until the real mechanic is in.
-        hookDoneButton(left);
-        hookDoneButton(right);
-
         stage = next;
         stage.attach(left, right);
         stage.onEnter();
     }
 
-    private void hookDoneButton(View page) {
-        View done = page.findViewById(R.id.stepDoneButton);
-        if (done != null) done.setOnClickListener(v -> completeCurrentStep());
-    }
-
-    /** Fills in the shared step views (any that exist on this page). */
+    /** Fills in the step views (instruction bar or cover). step is null on Results. */
     private void bindStepViews(View root, Recipe.Step step) {
+        boolean finished = step == null;
         setText(root, R.id.recipeName, recipe.name);
         setText(root, R.id.stageTitle, stage.getType().label);
-        if (step != null) {
+        setShown(root, R.id.stepCounter, !finished);
+        setShown(root, R.id.stepAction, !finished);
+        // Drag and fold-to-split steps work for real; everything else needs the temp button.
+        setShown(root, R.id.stepDoneButton, !finished && !step.hasMechanic());
+
+        if (finished) {
+            setText(root, R.id.stepInstruction, getString(R.string.results_made, recipe.name));
+        } else {
             setText(root, R.id.stepCounter,
                     getString(R.string.step_counter, stepIndex + 1, recipe.steps.length));
             setText(root, R.id.stepAction, step.action.label);
             setText(root, R.id.stepInstruction, step.text);
         }
-    }
-
-    private void bindCover(Recipe.Step step) {
-        bindStepViews(cover, step);
-        boolean finished = step == null;
-        setShown(cover, R.id.stepCounter, !finished);
-        setShown(cover, R.id.stepAction, !finished);
-        setShown(cover, R.id.stepDoneButton, !finished);
-        if (finished) {
-            setText(cover, R.id.stepInstruction, getString(R.string.results_made, recipe.name));
-        }
-        setText(cover, R.id.coverHint, getString(
-                finished ? R.string.cover_open_for_results : R.string.cover_open_to_cook));
     }
 
     private static void setText(View root, int id, CharSequence text) {
@@ -199,6 +191,17 @@ public class Gameplay extends AppCompatActivity {
     private static void setShown(View root, int id, boolean shown) {
         View view = root.findViewById(id);
         if (view != null) view.setVisibility(shown ? View.VISIBLE : View.GONE);
+    }
+
+    /** True while the game is visible and in front (not behind the lock screen). */
+    public boolean isOnScreen() {
+        return getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (stage != null) stage.onResume();
     }
 
     @Override

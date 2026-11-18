@@ -5,4 +5,5 @@
     <item name="bookLeftPage" type="id" />
     <item name="bookRightPage" type="id" />
     <item name="bookSpine" type="id" />
+    <item name="bookHeader" type="id" />
 </resources>

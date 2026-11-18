@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- PLACEHOLDER ingredient in the Assembly tray. Swap for an ImageView with the food sprite. -->
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/PixelButton"
+<!-- One ingredient on the left side: a square picture with its name underneath. Drag it to the right side. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="0dp"
-    android:layout_height="64dp"
+    android:layout_height="wrap_content"
     android:layout_columnWeight="1"
-    android:layout_margin="4dp"
-    android:textSize="13sp" />
+    android:layout_margin="6dp"
+    android:orientation="vertical">
+
+    <com.example.cookinggame.SquareFrameLayout
+        android:id="@+id/tileSquare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pixel_tile"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/tileImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:importantForAccessibility="no" />
+    </com.example.cookinggame.SquareFrameLayout>
+
+    <TextView
+        android:id="@+id/tileName"
+        style="@style/PixelText.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="@color/book_paper"
+        android:textStyle="bold" />
+</LinearLayout>

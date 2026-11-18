@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Instruction bar across the top of the kitchen table. Filled by Gameplay. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="56dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/pixel_page"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/stageTitle"
+        style="@style/PixelText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pixel_tag"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/book_paper"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/stepAction"
+        style="@style/PixelText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/pixel_tag_cover"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/book_cover_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/stepInstruction"
+        style="@style/PixelText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/stepCounter"
+        style="@style/PixelText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- PLACEHOLDER: skips steps whose mechanic (fold/shake/tap/timer) isn't built yet -->
+    <TextView
+        android:id="@+id/stepDoneButton"
+        style="@style/PixelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:textSize="12sp"
+        android:text="@string/step_done_placeholder" />
+</LinearLayout>

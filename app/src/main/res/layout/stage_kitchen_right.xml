@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Right side of the kitchen table (Assembly + Cooking): the task.
+    Ingredients dropped anywhere on this side land on the square station.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Timer slot, only shown on TIMER steps -->
+    <TextView
+        android:id="@+id/timerText"
+        style="@style/PixelText.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/book_paper"
+        android:textSize="32sp"
+        android:text="@string/timer_placeholder"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.example.cookinggame.SquareFrameLayout
+            android:id="@+id/station"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/stationImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/station_picture" />
+
+            <!-- Dropped ingredients are added here -->
+            <FrameLayout
+                android:id="@+id/stationItems"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:id="@+id/stationHighlight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/station_highlight"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/stationLabel"
+                style="@style/PixelText.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/pixel_tag"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/book_paper"
+                android:textStyle="bold" />
+        </com.example.cookinggame.SquareFrameLayout>
+    </FrameLayout>
+
+    <!-- Short feedback, e.g. "Not needed for this step!" -->
+    <TextView
+        android:id="@+id/stationMessage"
+        style="@style/PixelText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:minHeight="24dp"
+        android:gravity="center"
+        android:textColor="@color/book_paper"
+        android:textStyle="bold" />
+</LinearLayout>

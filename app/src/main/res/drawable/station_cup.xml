@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PLACEHOLDER cup (square). To use real art, delete this file and add station_cup.png. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#F2E6D0" />
+    <stroke android:width="6dp" android:color="@color/book_ink" />
+</shape>

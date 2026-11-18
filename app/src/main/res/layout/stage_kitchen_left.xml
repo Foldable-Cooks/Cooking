@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ASSEMBLY, left page: current step + ingredient tray (drag sources). -->
+<!-- Left side of the kitchen table (Assembly + Cooking): ingredients to drag. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/stage_step_header" />
-
     <TextView
-        style="@style/PixelText.Header"
-        android:layout_width="wrap_content"
+        style="@style/PixelText.Small"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ingredients_header" />
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:textColor="@color/book_paper"
+        android:textStyle="bold"
+        android:text="@string/kitchen_ingredients" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <!-- Filled with item_ingredient_tile by AssemblyStage -->
+        <!-- Filled with item_ingredient_tile by KitchenStage -->
         <GridLayout
             android:id="@+id/ingredientTray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2" />
+            android:columnCount="3" />
     </ScrollView>
 </LinearLayout>

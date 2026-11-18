@@ -4,7 +4,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Recipe book palette (matches the title screen cover) -->
-    <color name="book_background">#EDE4D1</color>
     <color name="book_paper">#F7F0DF</color>
     <color name="book_ink">#354B38</color>
     <color name="book_ink_soft">#526B50</color>
@@ -13,7 +12,7 @@
     <color name="book_gold">#D9BD83</color>
     <color name="book_highlight">#E8D3A5</color>
 
-    <!-- Placeholder gameplay props (swap for pixel art) -->
-    <color name="placeholder_board">#C8955A</color>
-    <color name="placeholder_stove">#5B5B5B</color>
+    <!-- Kitchen table (gameplay background) -->
+    <color name="kitchen_table">#A0703F</color>
+    <color name="kitchen_table_seam">#7A5230</color>
 </resources>

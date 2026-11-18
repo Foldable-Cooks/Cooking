@@ -23,11 +23,13 @@
     <!-- Gameplay -->
     <string name="step_counter">Step %1$d / %2$d</string>
     <string name="step_done_placeholder">DONE (TEMP)</string>
-    <string name="assembly_board">CUTTING BOARD</string>
-    <string name="cooking_timer">TIMER</string>
     <string name="timer_placeholder">--:--</string>
-    <string name="cooking_stove">STOVE</string>
-    <string name="results_title">RESULTS</string>
+    <string name="kitchen_ingredients">INGREDIENTS</string>
+    <string name="kitchen_not_needed">Not needed for this step!</string>
+    <string name="kitchen_already_added">Already added!</string>
+    <string name="kitchen_nice">Nice!</string>
+    <string name="kitchen_fold_to_split">Fold your phone, then open it again!</string>
+    <string name="station_picture">Workstation</string>
     <string name="results_enjoy">Bon appetit!</string>
     <string name="results_made">You made %1$s!</string>
     <string name="results_how_did_you_do">HOW DID YOU DO?</string>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- RESULTS, right page: how the player did, and the way back to the recipe book. -->
+<!-- RESULTS, right side of the table: a score card and the way back to the recipe book. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/pixel_page"
+    android:padding="16dp">
 
     <TextView
         style="@style/PixelText.Title"

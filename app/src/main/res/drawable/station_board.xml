@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PLACEHOLDER cutting board (square). To use real art, delete this file and add station_board.png. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#D9A86C" />
+    <stroke android:width="6dp" android:color="@color/book_ink" />
+</shape>
